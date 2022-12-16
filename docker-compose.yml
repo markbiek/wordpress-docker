@@ -1,7 +1,6 @@
-# For more information: https://laravel.com/docs/sail
 version: '3'
 services:
-    wordpress
+    wordpress:
         image: 'wordpress'
         ports:
             - '${APP_PORT:-80}:80'
@@ -12,7 +11,6 @@ services:
             - wp
         depends_on:
             - mysql
-            - redis
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -43,5 +41,5 @@ networks:
     wp:
         driver: bridge
 volumes:
-    sail-mysql:
+    wp-mysql:
         driver: local
